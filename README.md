@@ -1,95 +1,36 @@
-﻿# For the King
+﻿# ForTheKing-NTUST
 
-## 內部規範
+ForTheKing-NTUST 是一款由 C++ 開發，重現 RPG 遊戲 ForTheKing 的遊戲。
 
-### Coding Style
+## 特色功能
+- **世界地圖：** 9 大主題區域，操作角色在世界地圖上移動，遭遇敵人，發現互動地點，觸發隨機事件。
+- **裝備系統：** 3 大裝備種類，共計 17 種裝備，搭配強大的裝備應付戰鬥。
+- **道具系統：** 傳送卷軸、恢復生命、紮營帳篷、提高行動力...等多種功能各異的道具。
+- **技能系統：** 共計 12 種技能，範圍傷害、精準爆擊、治療生命、被動反擊...等，靈活使用技能建立獨特戰鬥風格。
+- **狀態效果：** 共計 4 種狀態效果，施展技能善用狀態效果來扭轉戰局，或為友軍附上強化。
+- **戰鬥系統：** 共計 42 種敵人， 6 種野外BOSS 、12 位主題BOSS。
 
-- 不可使用具有外部連結的 Global Variable；若要使用 Global Variable，則需要確保其他人只能依靠額外的 Function 來存取 Global Variable 的 Data
-- Class 中的 Data 不可被外部操作直接存取，需要建立專門的 Getter 與 Setter
-- Function 行數不宜超過 150 行
-- Function 傳入的 Variable 不能超過 7 個，並且 Function 內部不能使用**非 Const**的 Global Variable
-- Function 的縮進次數不應超過 4，否則需要額外使用條件反轉或 Helper
-- 每個 Source File 只能引用其相同名稱的 Header File
-- 若函式具有 inline，則應該放在檔案後綴為 .inl 的同名檔案中，作為介面的實現
-- 每個 Header File 都需要有註解
-- 命名風格統一為駝峰式命名法
+## 開發中
+還有更多裝備與敵人數據尚在開發中...
 
-### Commit Style
+## 安裝與執行
+### 系統需求
+- **建議作業系統：** Windows 10 或更新版本 / macOS 10.14 或更新版本
+- **開發環境：** Visual Studio 2019 或更新版本
 
-Commit 必須按照以下的格式進行
+### 安裝步驟
+1. **Clone 專案：**
+   ```bash
+   https://github.com/AkitaCodingPeasant/NTUST-GameDev-ForTheKing
+   ```
+2. **開啟專案：** 使用 Visual Studio 開啟專案資料夾。
+3. **執行遊戲：** 在 Visual Studio 中編譯並執行即可開始遊戲。
 
-```
-{HEADER} - 摘要本次 Commit 的內容
-(OPTION) <Body> - 詳細說明這次的內容
-(OPTION) <Footer> - 額外註記
-```
-
-Header 作為摘記不要過長；Body 可以描述這次提交的詳細內容；Footer 可以做為額外註記使用
-
-- Headers
-    - FEAT : 新的功能
-    - FIX : 修復錯誤
-    - DOCS : Document 相關的修改 (CHANGELOG、README、...)
-    - PERF : 效能改善，或是增加追蹤效能的 Code
-    - TEST : 新增測試文件
-    - STYLE : 單純修改程式碼中的美觀排版
-    - DEPRECATE : 淘汰某些不必要的 Feature 或是功能
-    - REFACTOR : 不添加新功能或是修復 Bug 的情況下重構程式架構 (拆成更小的模組、更好的寫法、...)
-    - RELEASE : 和版本相關的註記
-    - CI : 對於 CI 相關設定的調整
-
-Ref : https://isoneet.org/web-learning/devTools/git.html#commit-message
-
-### Development Criterion
-
-在開發新功能時必須新增 Branch，並且需先和 Main Branch 嘗試 Merge，並且在 Merge 後沒有出現 Bug 時才能發送 Pull Request 和 Main Branch 做 Merge
-
-Branch 必須按照以下命名規範
-
-```
-{NAME}-{STATUS}
-```
-
-- Name
-    - Name 可以放正在進行開發的 class 或是 Feature 的名稱
-- Status
-    - DEV : 開發新功能
-    - FIX : 修復程式 Bug
-    - REBUILD : 重構程式架構
-
-如果不會使用 Branch 以下有提供命令
-
-```
-// 建立 Branch
-git checkout -b className-DEV
-
-// 切換 Branch
-git checkout branchName
-
-// 確認目前所在 Branch
-
-git status
-git checkout
-```
-
-## Members
-
-- B11215013 徐牧遠
-- B11230040 劉祐呈
-- B11215024 劉柏毅
-- B11230017 吳秉彥
-- B11230015 蕭天浩
-
-## Quick Start
-
-## Contribution
-
-### B11215013 徐牧遠
-
-### B11230040 劉祐呈
-
-### B11215024 劉柏毅
-
-### B11230017 吳秉彥
-
-### B11230015 蕭天浩
+## 開發團隊
+- **專案團隊：** 台科 千年遊戲開發部
+- **成員 01：** [AkitaCodingPeasant](https://github.com/AkitaCodingPeasant)
+- **成員 02：** [b4ttl3C4t](https://github.com/b4ttl3C4t)
+- **成員 03：** [ABB00717](https://github.com/ABB00717)
+- **成員 04：** [aifred0729-TW](https://github.com/aifred0729-TW)
+- **成員 05：** [howardmeow](https://github.com/howardmeow)
+- **聯絡方式：** booboodog7272@gmail.com
