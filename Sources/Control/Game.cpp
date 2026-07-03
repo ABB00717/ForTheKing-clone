@@ -1,6 +1,7 @@
 ﻿#include <WorldMap.h>
 #include <Role.h>
 #include <Game.h>
+#include <Platform.h>
 #include <Enemy.h>
 #include <WorldMap.h>
 #include <Role.h>
@@ -65,12 +66,12 @@ void Game::MainProcess(void) {
     UI::checkConsoleSize(50, 180);
     UI::ShowMenu();
 
-    system("Pause");
-    system("CLS");
+    Platform::pause();
+    Platform::clearScreen();
     /*
     for (int i = 0; i < 56; i++) {
         UI::displayFile("porf.txt", i, 0);
-        Sleep(10);
+        Platform::sleepMs(10);
     }
     */
     for (auto R : roles) {
@@ -107,7 +108,7 @@ void Game::MainProcess(void) {
     // 結束遊戲
     for (int i = 0; i < 56; i++) {
         UI::displayFile("porf.txt", i, 0);
-        Sleep(10);
+        Platform::sleepMs(10);
     }
     return;
 }
@@ -596,7 +597,7 @@ void Game::choiceItem(Role* role) {
     std::vector<Item*> items = Role::backpack.getItems();
     if (items.empty()) {
         UI::displayString("[背包空空如也...] ", 126, 2);
-        system("Pause");
+        Platform::pause();
         return;
     }
     std::vector<std::string> choices;

@@ -8,7 +8,7 @@
 #include <Dice.h>
 #include <Field.h>
 #include <KeyBoard.h>
-#include <color.h>
+#include <Color.h>
 #include <Displayer.h>
 #include <WorldMap.h>
 #include "Equipment.h"

@@ -1,10 +1,11 @@
 ﻿#include <KeyBoard.h>
+#include <Platform.h>
 
 int KeyBoard::keyUpdate(bool key[]) {
     for (long long i = 0; i < ValidInput::INVALID; i++) {
         key[i] = false;
     }
-    char input = _getch();
+    char input = Platform::readKey();
     switch (input) {
     case 'a':
         key[ValidInput::EA] = true;

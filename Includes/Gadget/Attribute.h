@@ -8,7 +8,6 @@
 #include <stack>
 #include <string>
 #include <vector>
-#include <windows.h>
 #include <random>
 #include <algorithm>
 

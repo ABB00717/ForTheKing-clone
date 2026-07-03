@@ -1,8 +1,8 @@
 #ifndef TENT_H
 #define TENT_H
+#include <cstdint>
 
 #include <vector>
-#include <windows.h>
 
 #include <Interactive.h>
 

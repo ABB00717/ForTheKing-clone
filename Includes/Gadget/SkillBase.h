@@ -1,5 +1,6 @@
 ﻿#ifndef SKILL_BASE_H
 #define SKILL_BASE_H
+#include <cstdint>
 
 #include <vector> 
 #include <string>

@@ -1,5 +1,6 @@
 ﻿#ifndef SKILLCOMMANDSET_H
 #define SKILLCOMMANDSET_H
+#include <cstdint>
 
 #include <vector>
 #include <iostream>

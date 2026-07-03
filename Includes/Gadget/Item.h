@@ -1,5 +1,6 @@
 ﻿#ifndef ITEM_H
 #define ITEM_H
+#include <cstdint>
 
 #include <string>
 #include <ItemCommand.h>
