@@ -52,7 +52,7 @@ namespace Platform {
 
     // Put the terminal into raw mode just long enough to read one key, then
     // restore the previous settings. Keeping the raw state local avoids a
-    // global side effect and matches the old blocking _getch() behaviour.
+    // global side effect.
     int readKey() {
         struct termios oldTerm;
         struct termios rawTerm;
@@ -87,7 +87,7 @@ namespace Platform {
                     result = 27;
                 }
             } else if (ch == '\n') {
-                result = 13; // normalise Enter to the Windows carriage-return code
+                result = 13; // normalise Enter to the CR code KeyBoard expects
             } else {
                 result = ch;
             }
@@ -108,8 +108,8 @@ namespace Platform {
         }
     }
 
-    // ANSI cursor addressing is 1-based; the game speaks the 0-based Win32
-    // convention, so shift by one here.
+    // ANSI cursor addressing is 1-based; callers pass 0-based coordinates,
+    // so shift by one here.
     void moveCursor(int x, int y) {
         std::cout << "\033[" << (y + 1) << ';' << (x + 1) << 'H' << std::flush;
     }
