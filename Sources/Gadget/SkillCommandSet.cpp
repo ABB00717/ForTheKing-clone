@@ -1,4 +1,5 @@
 ﻿#include <SkillCommandSet.h>
+#include <Platform.h>
 #include <SkillTable.h>
 #include "SkillCommand.h"
 #include <UI.h>
@@ -152,11 +153,11 @@ void TsubameGaeshiActiveCommand::execute(Entity& caster, std::vector<Entity*> ta
     UI::logEvent(caster.GetName() + " 揮出了第一刀 " + std::to_string(damage1) + " 傷害的物理攻擊！");
     targets[0]->takeDamage(damage1, 'P');
     UI::renewPlayerInfo();
-    Sleep(500);
+    Platform::sleepMs(500);
     UI::logEvent(caster.GetName() + " 揮出了第二刀 " + std::to_string(damage2) + " 傷害的物魔混傷攻擊！");
     targets[0]->takeDamage(damage2, 'X');
     UI::renewPlayerInfo();
-    Sleep(500);
+    Platform::sleepMs(500);
     UI::logEvent(caster.GetName() + " 揮出了第三刀 " + std::to_string(damage3) + " 傷害的無視防禦攻擊！");
     targets[0]->takeDamage(damage3, 'I');
 }

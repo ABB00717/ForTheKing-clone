@@ -1,4 +1,5 @@
 ﻿#include <Field.h>
+#include <stdexcept>
 #include <UI.h>
 #include <Attribute.h>
 #include <KeyBoard.h>
@@ -439,10 +440,10 @@ void Field::ExitPhase(void) {
     }
 
     if (AllRoleDead) {
-        throw exception("Role Dead!\n");
+        throw std::runtime_error("Role Dead!\n");
     }
     if (AllEnemyDead) {
-        throw exception("Enemy Dead!\n");
+        throw std::runtime_error("Enemy Dead!\n");
     };
 }
 

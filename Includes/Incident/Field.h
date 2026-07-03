@@ -9,7 +9,6 @@
 #include <queue>
 #include <string>
 #include <vector>
-#include <windows.h>
 
 class Dice;
 class Entity;

@@ -8,7 +8,6 @@
 #include <stack>
 #include <string>
 #include <vector>
-#include <windows.h>
 #include "Game.h"
 
 #include <Interactive.h>

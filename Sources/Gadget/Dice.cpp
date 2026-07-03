@@ -52,7 +52,7 @@ void Dice::RollDice(void) {
 
     // Roll Dice
     resize(this->amount);
-    UI::logEvent("骰子成功機率為: " + std::to_string(max(static_cast<int>(this->successRate[0] + this->rateAddition[0]), 0)));
+    UI::logEvent("骰子成功機率為: " + std::to_string(std::max(static_cast<int>(this->successRate[0] + this->rateAddition[0]), 0)));
     for (int i = 0; i < this->amount; i++) {
         this->result[i] = (dis(gen) < this->successRate[i] + this->rateAddition[i]) || (i < focusCount);
         this->diceLog[i] = (int)result[i];

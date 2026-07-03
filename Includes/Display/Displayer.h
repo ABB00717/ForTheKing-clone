@@ -5,9 +5,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include <windows.h>
 #include <vector>
-#include <conio.h>
 #include <iomanip>
 
 class Enemy;

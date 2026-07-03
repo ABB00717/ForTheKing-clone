@@ -8,7 +8,6 @@
 #include <stack>
 #include <string>
 #include <vector>
-#include <windows.h>
 
 class Role;
 class Enemy;

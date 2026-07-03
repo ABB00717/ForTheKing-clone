@@ -1,5 +1,6 @@
 ﻿#ifndef SKILLCOMMAND_H
 #define SKILLCOMMAND_H
+#include <cstdint>
 
 #include <vector>
 

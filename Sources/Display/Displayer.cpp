@@ -5,6 +5,7 @@
 #include <Dice.h> //待確認
 #include <Attribute.h>
 #include <KeyBoard.h>
+#include <Platform.h>
 #include "Color.h"
 #include "SkillBase.h"
 #include "UI.h"
@@ -17,10 +18,7 @@ int Displayer::stackHeight;
 
 //移動光標
 void Displayer::moveCursor(int x, int y) {
-    COORD coord;
-    coord.X = x;
-    coord.Y = y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+    Platform::moveCursor(x, y);
 }
 
 void Displayer::BuildVoid(int x1, int y1, int x2, int y2) {
@@ -191,7 +189,7 @@ void Displayer::displayDice(std::vector<int> diceLog) {
         x1 += 12;
     }
     x1 = x;
-    Sleep(500);
+    Platform::sleepMs(500);
     for (int i = 0; i < count; i++) {
         if (diceLog[i] == 0) {
             std::cout << DARK << WHITE;
@@ -204,7 +202,7 @@ void Displayer::displayDice(std::vector<int> diceLog) {
         }
         displayFile("Dice04.txt", x1, y);
         x1 += 12;
-        Sleep(200);
+        Platform::sleepMs(200);
     }
 }
 
@@ -228,7 +226,7 @@ void Displayer::displayDiceMove(std::vector<int> diceLog) {
         x1 += 12;
     }
     x1 = x;
-    Sleep(500);
+    Platform::sleepMs(500);
     for (int i = 0; i < count; i++) {
         if (diceLog[i] == 0) {
             std::cout << DARK << WHITE;
@@ -241,7 +239,7 @@ void Displayer::displayDiceMove(std::vector<int> diceLog) {
         }
         displayFile("Dice04.txt", x1, y);
         x1 += 12;
-        Sleep(200);
+        Platform::sleepMs(200);
     }
     if (count == 10) {
         moveCursor(1, 10);

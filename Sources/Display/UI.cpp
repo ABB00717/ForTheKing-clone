@@ -1,4 +1,5 @@
 ﻿#include <UI.h>
+#include <Platform.h>
 #include <Role.h>
 #include <Enemy.h>
 #include <Entity.h>
@@ -31,10 +32,9 @@ void UI::checkConsoleSize(int requiredRows, int requiredCols) {
     static int preRequiredRows = 0;
     static int preRequiredCols = 0;
     while (1) {
-        CONSOLE_SCREEN_BUFFER_INFO csbi;
-        GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-        int consoleRows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
-        int consoleCols = csbi.srWindow.Right - csbi.srWindow.Left + 1;
+        int consoleRows = 0;
+        int consoleCols = 0;
+        Platform::consoleSize(consoleRows, consoleCols);
         if (preRequiredRows != consoleRows || preRequiredCols != consoleCols) {
             moveCursor(0, 0);
             preRequiredRows = consoleRows;
@@ -47,7 +47,7 @@ void UI::checkConsoleSize(int requiredRows, int requiredCols) {
             std::cout << RESET;
         }
         if ((consoleRows >= requiredRows) && (consoleCols >= requiredCols)) {
-            system("CLS");
+            Platform::clearScreen();
             return;
         }
     }
@@ -85,7 +85,7 @@ void UI::logEvent(const std::string& event) {
             displayString(5, 4 - i, mapLog[mapLog.size() - i - 1]);
         }
     }
-    //Sleep(150);
+    //Platform::sleepMs(150);
 }
 
 
@@ -136,7 +136,7 @@ int UI::PreBattle(std::vector<Enemy*> enemys, std::vector<Role*> roles) {
 
 int UI::ShowMenu(void) {
     using namespace std;
-    system("CLS");
+    Platform::clearScreen();
     std::string bannerStr = BANNER;
     BuildFrame(0, 0, 179, 49);
     displayString(bannerStr, 3, 1);
@@ -238,7 +238,7 @@ void UI::printPriority(std::vector<Action*> eventQueue) {
             std::cout << oldOutputStr << " ";
             BuildVoid(61 - strLengthCount / 2, 8, 60 - strLengthCount / 2 - i, 10);
             BuildVoid(61 + strLengthCount / 2, 8, 66 + strLengthCount / 2 + oldEventQueue[0]->GetObj()->GetName().length(), 10);
-            Sleep(100);
+            Platform::sleepMs(100);
         }
         BuildVoid(0, 7, 121, 11);
         moveCursor(61 - strLengthCount / 2, 9);
@@ -249,7 +249,7 @@ void UI::printPriority(std::vector<Action*> eventQueue) {
         for (int i = 0; i < oldStrLengthCount; i++) {
             moveCursor(61 + (oldStrLengthCount + 1) / 2 - i, 9);
             std::cout << " ";
-            Sleep(3);
+            Platform::sleepMs(3);
         }
         moveCursor(61 - strLengthCount / 2, 9);
         std::cout << outputStr;
