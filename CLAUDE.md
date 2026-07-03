@@ -26,6 +26,12 @@ implementation (termios/ioctl/ANSI) and a Windows fallback behind `#ifdef _WIN32
 
 Requires a UTF-8, ANSI-capable terminal (the UI is Traditional Chinese with ANSI colors).
 
+**All source files must be UTF-8.** Chinese string literals are used as lookup keys across
+translation units (e.g. `SkillTable`/`ItemTable` register a key that `GameInitialize.cpp`
+looks up by the same literal). If one file is Big5 and another UTF-8, the byte sequences
+differ, the lookup misses, and dereferencing the `find()` result crashes. Keep every file
+UTF-8 so the keys match.
+
 ### Include-path convention (important)
 
 Headers are included by **basename only** (e.g. `#include <Entity.h>`, `#include <Skill.h>`),
